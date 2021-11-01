@@ -9,7 +9,7 @@ const Product = async () => {
    //this.a =this.Product() 
  export const Productss = Product();
 
- //console.log(this.a)
+
     
 
 export const Products = [

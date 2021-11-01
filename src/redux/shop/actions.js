@@ -1,4 +1,5 @@
 import * as actionTypes from "./types";
+import axios from "axios";
 
 export const addToCart = (itemID) => {
   return {
@@ -45,3 +46,9 @@ export const loadCurrentItem = (item) => {
     payload: item,
   };
 };
+
+export const getData = () => dispatch => {
+  dispatch({ type: actionTypes.LOADING })
+axios.get('https://last-airbender-api.herokuapp.com/api/v1/characters?perPage=150')
+  .then(res => dispatch({ type: actionTypes.SUCCESS, payload: res.data}))
+}

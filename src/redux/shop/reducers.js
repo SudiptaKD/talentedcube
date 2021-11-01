@@ -3,11 +3,13 @@ import { Products } from "../../components/FakeProducts/fakeProducts";
 
 const INITIAL_STATE = {
   products: Products,
+  product: [],
   cart: [],
   currentItem: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
+  console.log(action)
   switch (action.type) {
     case actionTypes.ADD_TO_CART:
       // Getting Item data from products array
@@ -52,6 +54,21 @@ const shopReducer = (state = INITIAL_STATE, action) => {
       return state;
     case actionTypes.FETCH_SUCCESS: 
       return {...state, posts: action.payload};
+      case actionTypes.LOADING:
+      return {
+        ...state,
+        product: [],
+        loading: true,
+        err: ''
+      }
+
+    case actionTypes.SUCCESS:
+      return {
+        ...state,
+        product: action.payload.data,
+        loading: false,
+        err: ''
+      }
     default:
       return state;
   }
