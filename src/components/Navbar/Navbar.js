@@ -19,7 +19,7 @@ const Navbar = ({ cart }) => {
   return (
     <NavbarTag bg="dark" variant="dark">
       <Container>
-        <Nav style={{height:'60px'}}>
+        <Nav style={{height:'80px'}}>
           <Button variant="success">
             <Link to="/cart" style={{textDecoration:'none'}}>
                 <h1 >{cartCount}</h1>
